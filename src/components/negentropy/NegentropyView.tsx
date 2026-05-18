@@ -41,6 +41,15 @@ export default function NegentropyView() {
       chordDescription: "Ethereal and grounded",
       createdAt: new Date(),
       type: 'dream'
+    },
+    { 
+      id: '3', 
+      tag: 'impression', 
+      domain: 'daily', 
+      feel: 'observed', 
+      content: "Today the sunlight felt thicker, almost tangible, as it cascaded through the library window...",
+      createdAt: new Date(),
+      type: 'fragments' as any
     }
   ];
 
@@ -61,7 +70,7 @@ export default function NegentropyView() {
             onClick={() => setActiveTab(tab)}
             className={cn(
               "pb-4 text-sm font-medium tracking-widest uppercase relative transition-colors",
-              activeTab === tab ? "text-claude-text dark:text-claude-accent" : "text-claude-muted hover:text-claude-text"
+              activeTab === tab ? "text-claude-accent dark:text-claude-accent" : "text-claude-muted hover:text-claude-text"
             )}
           >
             {activeTab === tab && (
@@ -83,45 +92,10 @@ export default function NegentropyView() {
         )}
 
         {activeTab === 'fragments' && (
-          <div className="space-y-6">
-            <div className="flex items-center justify-between">
-              <div className="flex p-1 bg-claude-secondary/50 rounded-full">
-                {(['daily', 'weekly'] as const).map(type => (
-                  <button
-                    key={type}
-                    onClick={() => setViewType(type)}
-                    className={cn(
-                      "px-4 py-1.5 rounded-full text-[10px] uppercase tracking-wider font-bold transition-all",
-                      viewType === type ? "bg-white text-claude-accent shadow-sm" : "text-claude-muted"
-                    )}
-                  >
-                    {type}
-                  </button>
-                ))}
-              </div>
-              <button 
-                onClick={() => setIsHistoryOpen(true)}
-                className="flex items-center gap-1.5 text-[10px] uppercase tracking-wider font-bold text-claude-muted hover:text-claude-accent transition-colors"
-              >
-                <RotateCcw size={14} />
-                <span>Yesterday's Card</span>
-              </button>
-            </div>
-
-            <div className="space-y-4">
-              <div 
-                onClick={() => setDetailCard({ content: "Today the sunlight felt thicker, almost tangible, as it cascaded through the library window...", tag: 'impression', domain: 'fragments', feel: 'observed', createdAt: new Date(), type: 'fragments', id: 'temp' })}
-                className="bg-white/40 border border-claude-accent/10 rounded-2xl p-6 shadow-sm cursor-pointer"
-              >
-                <span className="text-[10px] uppercase tracking-widest text-claude-accent font-bold mb-2 block">Latest {viewType} Impression</span>
-                <p className="text-base font-serif italic text-claude-text dark:text-white leading-relaxed line-clamp-2">
-                  "Today the sunlight felt thicker, almost tangible, as it cascaded through the library window..."
-                </p>
-                <div className="mt-4 pt-4 border-t border-claude-text/5 text-[10px] text-claude-muted dark:text-black">
-                  03:42 • 2026.05.18
-                </div>
-              </div>
-            </div>
+          <div className="grid grid-cols-1 gap-4">
+            {mockCards.filter(c => c.type === 'fragments' as any).map(card => (
+              <MemoryCardElement key={card.id} card={card} onClick={() => setDetailCard(card)} />
+            ))}
           </div>
         )}
 
@@ -194,8 +168,8 @@ export default function NegentropyView() {
                     {detailCard.domain}
                   </span>
                 </div>
-                <h3 className="text-2xl font-serif italic mb-6 leading-relaxed">
-                  "{detailCard.content}"
+                <h3 className="text-sm not-italic text-black dark:text-black mb-6 leading-relaxed">
+                  {detailCard.content}
                 </h3>
                 {detailCard.chord && (
                   <div className="mt-4 p-4 bg-claude-accent/5 rounded-2xl border border-claude-accent/10">

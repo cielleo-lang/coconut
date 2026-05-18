@@ -96,7 +96,7 @@ export default function ChatView() {
       <div className="flex items-center justify-between mb-4 sticky top-0 z-10 bg-inherit py-2">
         <button 
           onClick={() => setIsDrawerOpen(true)}
-          className="flex items-center gap-2 px-3 py-1.5 rounded-full bg-claude-secondary hover:bg-claude-accent/10 transition-colors text-sm font-medium dark:text-claude-accent"
+          className="flex items-center gap-2 px-3 py-1.5 rounded-full bg-claude-accent hover:opacity-90 transition-colors text-sm font-medium text-white"
         >
           <History size={16} />
           <span>Sessions</span>
@@ -218,7 +218,7 @@ export default function ChatView() {
               className="fixed right-0 top-0 bottom-0 w-80 bg-claude-bg shadow-2xl z-[70] p-6 flex flex-col"
             >
               <div className="flex items-center justify-between mb-8">
-                <h2 className="text-xl font-serif italic">Sessions</h2>
+                <h2 className="text-xl font-serif italic text-claude-text dark:text-gray-600">Sessions</h2>
                 <button onClick={() => setIsDrawerOpen(false)} className="p-2 hover:bg-claude-secondary rounded-full transition-colors">
                   <ChevronRight size={20} />
                 </button>
@@ -236,7 +236,7 @@ export default function ChatView() {
                     className="w-full text-left p-4 rounded-xl bg-claude-secondary/30 hover:bg-claude-secondary transition-colors border border-transparent hover:border-claude-accent/10 group"
                   >
                     <div className="flex justify-between items-start mb-1">
-                      <span className="font-medium text-sm group-hover:text-claude-accent transition-colors">{session.name}</span>
+                      <span className="font-medium text-sm text-claude-text dark:text-gray-600 group-hover:text-claude-accent dark:group-hover:text-claude-accent transition-colors">{session.name}</span>
                       <span className="text-[10px] text-claude-muted opacity-60">ID: {session.id}</span>
                     </div>
                     <div className="flex items-center gap-3 text-[10px] text-claude-muted">

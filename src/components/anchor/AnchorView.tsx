@@ -30,9 +30,9 @@ export default function AnchorView() {
       <div className="flex items-center gap-3 sticky top-0 z-20 bg-inherit py-2 mb-6">
         <button 
           onClick={() => setIsTagsOpen(true)}
-          className="p-3 rounded-2xl bg-claude-secondary hover:bg-claude-accent hover:text-white transition-all shadow-sm"
+          className="p-3 rounded-full bg-claude-accent text-white hover:opacity-90 transition-all shadow-sm"
         >
-          <Menu size={20} className="dark:text-claude-accent" />
+          <Menu size={20} />
         </button>
         <div className="flex-1 relative">
           <Search size={18} className="absolute left-4 top-1/2 -translate-y-1/2 text-claude-muted opacity-50" />
@@ -70,8 +70,8 @@ export default function AnchorView() {
               className="group p-5 bg-white/40 border border-claude-text/5 rounded-2xl hover:bg-white/60 hover:border-claude-accent/20 hover:shadow-lg transition-all transform hover:-translate-y-1 cursor-pointer"
             >
               <div className="flex justify-between items-start mb-3">
-                <span className="px-2 py-0.5 bg-claude-secondary dark:text-claude-accent rounded-full text-[9px] uppercase tracking-wider font-bold">Category Name</span>
-                <span className="text-[10px] text-claude-muted dark:text-white opacity-40 italic">05.18.2026</span>
+                <span className="px-2 py-0.5 bg-claude-secondary text-claude-accent dark:text-claude-accent rounded-full text-[9px] uppercase tracking-wider font-bold">Category Name</span>
+                <span className="text-[10px] text-claude-muted dark:text-white italic">05.18.2026</span>
               </div>
               <h4 className="text-[13px] font-serif italic mb-2 leading-snug line-clamp-2">{item.content}</h4>
               <div className="flex gap-2">
@@ -103,10 +103,10 @@ export default function AnchorView() {
                 </button>
               </div>
               <div className="mb-6">
-                <span className="px-2 py-1 bg-claude-secondary dark:text-claude-accent rounded-full text-[10px] uppercase tracking-wider font-bold mb-4 inline-block">
+                <span className="px-2 py-1 bg-claude-secondary text-claude-accent dark:text-claude-accent rounded-full text-[10px] uppercase tracking-wider font-bold mb-4 inline-block">
                   {detailItem.category}
                 </span>
-                <h3 className="text-2xl font-serif italic leading-relaxed">
+                <h3 className="text-sm not-italic text-black dark:text-black leading-relaxed">
                   {detailItem.content}
                 </h3>
               </div>

@@ -123,7 +123,7 @@ export default function ResonanceView() {
                 onClick={() => setActiveTab('player')}
                 className="flex-1 min-w-0 cursor-pointer"
               >
-                <h4 className="text-xs font-bold truncate dark:text-black">{currentSong.title}</h4>
+                <h4 className="text-xs font-bold truncate text-black dark:text-black">{currentSong.title}</h4>
                 <p className="text-[9px] uppercase tracking-wider text-claude-muted font-bold truncate">{currentSong.artist}</p>
               </div>
               <div className="flex items-center gap-2">

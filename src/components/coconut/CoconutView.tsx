@@ -395,8 +395,8 @@ function CorkboardView() {
                     "text-[15px] font-medium mb-1",
                     wish.completed && "line-through text-claude-muted"
                   )}>{wish.text}</h4>
-                  {wish.memo && <p className="text-[11px] text-claude-muted leading-relaxed mb-2 opacity-80">{wish.memo}</p>}
-                  <div className="flex items-center gap-1.5 text-[9px] font-bold text-claude-muted/40 uppercase tracking-widest">
+                  {wish.memo && <p className="text-[11px] text-claude-muted dark:text-white leading-relaxed mb-2 opacity-80">{wish.memo}</p>}
+                  <div className="flex items-center gap-1.5 text-[9px] font-bold text-claude-muted/40 dark:text-white uppercase tracking-widest">
                     <Clock size={10} />
                     <span>{format(wish.createdAt, 'yyyy.MM.dd')}</span>
                   </div>
@@ -411,7 +411,7 @@ function CorkboardView() {
             key="ceremony" initial={{ opacity: 0, y: 10 }} animate={{ opacity: 1, y: 0 }} exit={{ opacity: 0, y: -10 }}
             className="h-full"
           >
-            <div className="flex gap-4 overflow-x-auto pb-8 pt-2 no-scrollbar snap-x">
+            <div className="flex gap-4 overflow-x-auto pb-8 pt-2 no-scrollbar snap-x snap-mandatory">
               {mockCeremonies.map(ceremony => {
                 const days = Math.abs(differenceInDays(new Date(), ceremony.date));
                 const isPast = ceremony.type === 'count-up';
